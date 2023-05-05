@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: "KirangHaerang-Regular";
+    src: url("./assets/font/kirang-haerang/KirangHaerang-Regular.ttf");
+}
