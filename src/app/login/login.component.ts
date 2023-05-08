@@ -9,5 +9,6 @@ import { Component } from '@angular/core';
 
 export class LoginComponent {
   
+  urlimage1= "../../assets/images/15.png"
 }
 console.log("login hh")
