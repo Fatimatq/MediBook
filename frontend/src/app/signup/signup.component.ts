@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NgbCalendar, NgbDate, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { PatientServiceService } from '../patient-service.service';
+import { Patient } from '../login/patient';
 
 
 @Component({
@@ -37,7 +39,13 @@ export class SignupComponent {
   urlimage1= "../../assets/images/15.png"
   model!: NgbDateStruct;
   today = this.calendar.getToday();
+  model2 : any ={} 
+  patient:Patient =new Patient();
 
-  constructor(private calendar: NgbCalendar) {}
-
+  constructor(private calendar: NgbCalendar, private PatientService: PatientServiceService) {}
+	signup(){
+		this.patient.birth_Patient = new Date(`${this.model.year}-${this.model.month}-${this.model.day}`)
+		console.log(this.patient)
+		return this.PatientService.signup(this.patient.email_Patient,this.patient.password_Patient,this.patient.nom_Patient,this.patient.prenom_Patient,this.patient.birth_Patient,this.patient.gender_Patient)
+	}
 }
