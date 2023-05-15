@@ -15,6 +15,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbCalendar, NgbDate, NgbDatepickerModule, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { MediFolderComponent } from './medi-folder/medi-folder.component';
+import { NavbarSecondComponent } from './navbar-second/navbar-second.component';
 
 
 // import du module MatDatepickerModule
@@ -30,6 +33,9 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     FooterComponent,
     SignupComponent,
+    SidenavComponent,
+    MediFolderComponent,
+    NavbarSecondComponent,
   ],
   imports: [
     BrowserModule,

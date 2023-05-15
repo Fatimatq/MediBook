@@ -4,6 +4,7 @@ import { FirsthomeComponent } from './firsthome/firsthome.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SignupComponent } from './signup/signup.component';
+import { MediFolderComponent } from './medi-folder/medi-folder.component';
 
 const routes: Routes = [
   {
@@ -13,7 +14,8 @@ const routes: Routes = [
 {
         path:'signupdoctor',component :SignupComponent},
         {
-          path:'contact',component :NavbarComponent}
+          path:'contact',component :NavbarComponent},
+          {path:'mediFolder', component:MediFolderComponent }
 ];
 
 @NgModule({
