@@ -54,7 +54,7 @@ public class PatientController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new LoginResponse("error", "Invalid credentials"));
         }
 
-        return ResponseEntity.ok(new LoginResponse("success", "Login successful"));
+        return ResponseEntity.ok(new LoginResponse("success", "Login successful",patient));
     }
 	@PostMapping("/signup")
 	public Patient signup(@RequestBody SignupRequest signupRequest) throws UserAlreadyExistsException {
