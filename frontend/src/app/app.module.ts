@@ -17,6 +17,11 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbCalendar, NgbDate, NgbDatepickerModule, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { HomepatientComponent } from './homepatient/homepatient.component';
+
+
 
 // import du module MatDatepickerModule
 
@@ -31,6 +36,8 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     FooterComponent,
     SignupComponent,
+    HomepatientComponent,
+ 
   ],
   imports: [
     BrowserModule,
@@ -42,7 +49,10 @@ import { FormsModule } from '@angular/forms';
     NoopAnimationsModule,
     NgbDatepickerModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    MatButtonModule,
+    
 
   ],
   providers: [],
