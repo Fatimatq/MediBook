@@ -8,7 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
   providedIn: 'root'
 })
 export class PatientServiceService {
-  private isAuthenticateda = false;
+  private isAuthenticateda  = false;
   constructor(private http:HttpClient) {}
    
  
@@ -44,7 +44,14 @@ export class PatientServiceService {
     return false; // Return the authentication status
   }
   setAuthenticated(status: boolean): void {
-    this.isAuthenticateda = status; // Set the authentication status
+    localStorage.setItem("isAuthenticated",status.toString()) // Set the authentication status
   }
-  
+  logout():void {
+    this.setAuthenticated(false)
+    localStorage.removeItem("isAuthenticated")
+    localStorage.getItem("isAuthenticated")
+    console.log(localStorage.getItem("isAuthenticated"))
+    window.location.href = '/loginpatient';
+
+  }
 }

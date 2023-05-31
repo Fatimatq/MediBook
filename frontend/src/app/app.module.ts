@@ -16,10 +16,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbCalendar, NgbDate, NgbDatepickerModule, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { MediFolderComponent } from './medi-folder/medi-folder.component';
+import { NavbarSecondComponent } from './navbar-second/navbar-second.component';
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { HomepatientComponent } from './homepatient/homepatient.component';
+import { ScheduleModule, RecurrenceEditorModule ,DayService, WorkWeekService,WeekService, MonthService,MonthAgendaService} from '@syncfusion/ej2-angular-schedule';
+
+import { DashbordComponent } from './dashbord/dashbord.component';
 
 
 
@@ -37,7 +43,10 @@ import { HomepatientComponent } from './homepatient/homepatient.component';
     FooterComponent,
     SignupComponent,
     HomepatientComponent,
- 
+    SidenavComponent,
+    MediFolderComponent,
+    NavbarSecondComponent,
+    DashbordComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,10 +61,12 @@ import { HomepatientComponent } from './homepatient/homepatient.component';
     HttpClientModule,
     MatDialogModule,
     MatButtonModule,
+    ScheduleModule, RecurrenceEditorModule,
+    
     
 
   ],
-  providers: [],
+  providers: [DayService, WorkWeekService,WeekService, MonthService,MonthAgendaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

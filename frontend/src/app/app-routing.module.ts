@@ -4,25 +4,35 @@ import { FirsthomeComponent } from './firsthome/firsthome.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SignupComponent } from './signup/signup.component';
+
 import { HomepatientComponent } from './homepatient/homepatient.component';
 import { AuthGuard } from './uth.guard';
+
+import { MediFolderComponent } from './medi-folder/medi-folder.component';
+import { DashbordComponent } from './dashbord/dashbord.component';
+
 
 const routes: Routes = [
   {
     path: '', component: FirsthomeComponent
   },
   {
-    path: 'loginpatient', component: LoginComponent, canActivate:[AuthGuard] 
+
+    path: 'loginpatient', component: LoginComponent 
   },
   {
-    path: 'signupatient', component: SignupComponent, canActivate:[AuthGuard] 
+    path: 'signupatient', component: SignupComponent 
   },
   {
     path: 'contact', component: NavbarComponent
   },
   {
-    path:"homepatient",component: HomepatientComponent ,canActivate: [AuthGuard] 
+    path:"homepatient",component: HomepatientComponent 
   }
+,
+  {path:'mediFolder', component:MediFolderComponent  },
+  {path:'dashbord', component:DashbordComponent  }
+
 ];
 
 @NgModule({
