@@ -34,7 +34,7 @@ export class DocteurServiceService {
 
   }
   isAuthenticated(): boolean {
-    const value =localStorage.getItem("isAuthenticated")
+    const value =localStorage.getItem("isAuthenticateddoctor")
     if (value==="true"){
       return true
     }
@@ -45,9 +45,7 @@ export class DocteurServiceService {
   }
   logout():void {
     this.setAuthenticated(false)
-    localStorage.removeItem("isAuthenticated")
-    localStorage.getItem("isAuthenticated")
-    console.log(localStorage.getItem("isAuthenticated"))
+    localStorage.clear()
     window.location.href = '/logindocteur';
   
   }
