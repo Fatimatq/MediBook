@@ -16,4 +16,8 @@ public interface RendezvousService {
 
 	List<RendezVous> findAllRendezvous();
 
+	RendezVous modifierRendezVous(Long id, RendezVous rendezVousModifie);
+
+
+
 }

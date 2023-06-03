@@ -4,11 +4,11 @@ import {HttpClientModule} from "@angular/common/http"
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './loginpatient/login.component';
 import { FirsthomeComponent } from './firsthome/firsthome.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { SignupComponent } from './signup/signup.component';
+import { SignupComponent } from './signuppatient/signup.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -26,6 +26,9 @@ import { HomepatientComponent } from './homepatient/homepatient.component';
 import { ScheduleModule, RecurrenceEditorModule ,DayService, WorkWeekService,WeekService, MonthService,MonthAgendaService} from '@syncfusion/ej2-angular-schedule';
 
 import { DashbordComponent } from './dashbord/dashbord.component';
+import { LogindocteurComponent } from './logindocteur/logindocteur.component';
+import { SignupdocteurComponent } from './signupdocteur/signupdocteur.component';
+import { DashboarddoctorComponent } from './dashboarddoctor/dashboarddoctor.component';
 
 
 
@@ -47,6 +50,9 @@ import { DashbordComponent } from './dashbord/dashbord.component';
     MediFolderComponent,
     NavbarSecondComponent,
     DashbordComponent,
+    LogindocteurComponent,
+    SignupdocteurComponent,
+    DashboarddoctorComponent,
   ],
   imports: [
     BrowserModule,

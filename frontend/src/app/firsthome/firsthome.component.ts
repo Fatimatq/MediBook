@@ -12,4 +12,8 @@ export class FirsthomeComponent {
   urlimage4:string="../../assets/images/13.png";
   urlimage5:string="../../assets/images/14.png";
   urlimage6:string="../../assets/images/17.png";
+
+  public login ():void{
+
+  }
 }

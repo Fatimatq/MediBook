@@ -3,6 +3,7 @@ package com.backend.services.impl;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -43,7 +44,24 @@ public class RendezvousServiceImp implements RendezvousService {
 		// TODO Auto-generated method stub
 		return rendezVousRepository.findAll();
 	}
-
+	@Override
+	public RendezVous modifierRendezVous(Long id, RendezVous rendezVousModifie) {
+        Optional<RendezVous> optionalRendezVous = rendezVousRepository.findById(id);
+        if (optionalRendezVous.isPresent()) {
+            RendezVous rendezVous = optionalRendezVous.get();
+            // Mettre à jour les propriétés du rendez-vous avec les nouvelles valeurs
+            rendezVous.setDescription(rendezVousModifie.getDescription());
+            rendezVous.setDocteur(rendezVous.getDocteur());
+            rendezVous.setPatient(rendezVousModifie.getPatient());
+            rendezVous.setDateRendezVousStart(rendezVousModifie.getDateRendezVousStart());
+            rendezVous.setDateRendezVousEnd(rendezVousModifie.getDateRendezVousEnd());
+         
+            return rendezVousRepository.save(rendezVous);
+        } else {
+           System.out.println("Rendez-vous non trouvé avec l'ID : " + id);
+           return null;
+        }
+    }
     // Ajoutez d'autres méthodes spécifiques au service des rendez-vous si nécessaire
 
 }

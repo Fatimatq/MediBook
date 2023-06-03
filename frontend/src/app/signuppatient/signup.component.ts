@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgbCalendar, NgbDate, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { PatientServiceService } from '../patient-service.service';
-import { Patient } from '../login/patient';
+import { Patient } from '../loginpatient/patient';
 import { MatDialog } from '@angular/material/dialog';
 
 import Swal from 'sweetalert2'
