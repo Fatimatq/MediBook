@@ -31,6 +31,8 @@ import { FavorisComponent } from './favoris/favoris.component';
 import { HistoryPatientComponent } from './history-patient/history-patient.component';
 import { NotificationPatientComponent } from './notification-patient/notification-patient.component';
 import { PatientListComponent } from './patient-list/patient-list.component';
+import { SideNavDoctorComponent } from './side-nav-doctor/side-nav-doctor.component';
+import { TestComponent } from './test/test.component';
 
 
 
@@ -57,6 +59,8 @@ import { PatientListComponent } from './patient-list/patient-list.component';
     HistoryPatientComponent,
     NotificationPatientComponent,
     PatientListComponent,
+    SideNavDoctorComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,

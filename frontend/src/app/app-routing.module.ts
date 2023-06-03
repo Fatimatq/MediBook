@@ -16,11 +16,14 @@ import { FavorisComponent } from './favoris/favoris.component';
 import { PatientListComponent } from './patient-list/patient-list.component';
 import { NotificationPatientComponent } from './notification-patient/notification-patient.component';
 import { DocumentPatientComponent } from './document-patient/document-patient.component';
-
+import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
   {
     path: '', component: FirsthomeComponent
+  },
+  {
+    path: 'test', component: TestComponent
   },
   {
 
