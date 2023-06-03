@@ -26,6 +26,11 @@ import { HomepatientComponent } from './homepatient/homepatient.component';
 import { ScheduleModule, RecurrenceEditorModule ,DayService, WorkWeekService,WeekService, MonthService,MonthAgendaService} from '@syncfusion/ej2-angular-schedule';
 
 import { DashbordComponent } from './dashbord/dashbord.component';
+import { DocumentPatientComponent } from './document-patient/document-patient.component';
+import { FavorisComponent } from './favoris/favoris.component';
+import { HistoryPatientComponent } from './history-patient/history-patient.component';
+import { NotificationPatientComponent } from './notification-patient/notification-patient.component';
+import { PatientListComponent } from './patient-list/patient-list.component';
 
 
 
@@ -47,6 +52,11 @@ import { DashbordComponent } from './dashbord/dashbord.component';
     MediFolderComponent,
     NavbarSecondComponent,
     DashbordComponent,
+    DocumentPatientComponent,
+    FavorisComponent,
+    HistoryPatientComponent,
+    NotificationPatientComponent,
+    PatientListComponent,
   ],
   imports: [
     BrowserModule,
