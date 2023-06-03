@@ -41,7 +41,7 @@ export class DocteurServiceService {
     return false; // Return the authentication status
   }
   setAuthenticated(status: boolean): void {
-    localStorage.setItem("isAuthenticated",status.toString()) // Set the authentication status
+    localStorage.setItem("isAuthenticateddoctor",status.toString()) // Set the authentication status
   }
   logout():void {
     this.setAuthenticated(false)

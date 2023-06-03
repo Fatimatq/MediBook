@@ -32,7 +32,7 @@ export class LogindocteurComponent {
     localStorage.setItem("prenomDocteur", res.docteur.prenom)
     
 
-    localStorage.setItem("isAuthenticated",this.docteurService.isAuthenticated().toString())
+    localStorage.setItem("isAuthenticateddoctor",this.docteurService.isAuthenticated().toString())
     this.router.navigate(['/dashborddoctor']);
   })
 }
