@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Docteur } from './docteur';
 import { DocteurServiceService } from '../docteur-service.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-logindocteur',
@@ -34,7 +35,11 @@ export class LogindocteurComponent {
 
     localStorage.setItem("isAuthenticateddoctor",this.docteurService.isAuthenticated().toString())
     this.router.navigate(['/dashborddoctor']);
-  })
+  },err=>{ Swal.fire({
+    icon: 'error',
+    title: 'mot de passe incorrect',
+    showConfirmButton: true,
+    })})
 }
 
  

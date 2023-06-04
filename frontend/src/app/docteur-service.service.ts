@@ -6,9 +6,12 @@ import { Rendezvous } from './dashboarddoctor/rendezvous';
   providedIn: 'root'
 })
 export class DocteurServiceService {
-
+  
   constructor(private http:HttpClient) { }
-
+public deleteRendezVous(rendezvousId: number) {
+    const url = `http://localhost:8080/rendezvous/${rendezvousId}`;
+    return this.http.delete(url);
+  }
   signup(adresse:String,password:String,nom:String,prenom:String,specialite:String,numeroTelephone:String){
     const url = 'http://localhost:8080/docteurs/signup';
     const body = {
@@ -70,5 +73,6 @@ export class DocteurServiceService {
       }
     );
   }
+  
 
 }

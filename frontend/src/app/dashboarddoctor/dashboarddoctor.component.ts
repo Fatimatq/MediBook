@@ -18,7 +18,7 @@ export class DashboarddoctorComponent {
   constructor( private servicedocteur:DocteurServiceService,private router: Router){}
   public setView: View ="Month" 
   public readonly: boolean = true;
-  public selectedDate: Date = new Date(2007, 11, 9);
+  public selectedDate: Date = new Date();
   public Iddoctor= localStorage.getItem("idDocteur");
   private dataManager: DataManager = new DataManager({ 
     url: `http://localhost:8080/rendezvous/docteur/${localStorage.getItem("idDocteur")}`,
@@ -58,12 +58,27 @@ export class DashboarddoctorComponent {
       this.servicedocteur.updateRendezVousDescription(rendezvousId,this.rendervous)
       location.reload()
     }
+    if (args.requestType === 'eventRemove' && args.data.length > 0) {
+      const deletedRecord = args.data[0];
+      
+      const rendezvousId = deletedRecord.id;
+      console.log(rendezvousId)
+      this.servicedocteur.deleteRendezVous(rendezvousId).subscribe(
+        () => {
+          console.log('Rendez-vous supprimé avec succès.');
+          location.reload();
+        },
+        (error:any) => {
+          console.error('Erreur lors de la suppression du rendez-vous :', error);
+        }
+      );
+    }
   }
-  reloadPage(): void {
-    this.router.navigateByUrl('/dashborddoctor', { skipLocationChange: true }).then(() => {
-      this.router.navigate([this.router.url]);
-    });
+
+  public deleteRendezVous(args: any): void {
+    
   }
+
  
 }
 

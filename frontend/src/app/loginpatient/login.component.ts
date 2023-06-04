@@ -2,6 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { PatientServiceService } from '../patient-service.service';
 import { Patient } from './patient';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -52,9 +53,15 @@ export class LoginComponent implements OnInit {
 
       localStorage.setItem("isAuthenticated",this.PatientService.isAuthenticated().toString())
      // console.log(localStorage.setItem("isAuthenticated",this.PatientService.isAuthenticated().toString()))
-      this.router.navigate(['/homepatient']);
-    })
+      this.router.navigate(['/homepatient'])
+    },err=>{ Swal.fire({
+			icon: 'error',
+			title: 'mot de passe incorrect',
+			showConfirmButton: true,
+			})
+
   }
+    )
 }
 
-console.log("login hh")
+}
