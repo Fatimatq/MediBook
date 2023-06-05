@@ -38,6 +38,7 @@ import { LogindocteurComponent } from './logindocteur/logindocteur.component';
 import { SignupdocteurComponent } from './signupdocteur/signupdocteur.component';
 import { DashboarddoctorComponent } from './dashboarddoctor/dashboarddoctor.component';
 import { ListPatientComponent } from './list-patient/list-patient.component';
+import { DocumentpatientComponent } from './documentpatient/documentpatient.component';
 
 
 
@@ -73,6 +74,7 @@ import { ListPatientComponent } from './list-patient/list-patient.component';
     SignupdocteurComponent,
     DashboarddoctorComponent,
     ListPatientComponent,
+    DocumentpatientComponent,
 
   ],
   imports: [
