@@ -7,7 +7,8 @@
         <div class="second-div" *ngFor="let consultation of consultations">
             <div class="info-patient">
                 <img [src]="imageUrl">
-                <span class="name">{{ consultation.doctor.nom }} {{ consultation.doctor.prenom }}</span>
+                <span class="name"> Doctor : 
+                    {{ consultation.doctor.nom }} {{ consultation.doctor.prenom }}</span>
             </div>
 
             <div class="see-more">

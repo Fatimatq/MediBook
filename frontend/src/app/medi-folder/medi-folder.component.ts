@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Docteur } from '../logindocteur/docteur';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-medi-folder',
@@ -114,6 +115,12 @@ export class MediFolderComponent {
       // Envoyer la requête PUT avec les données mises à jour
       this.http.put(url, consultationData).subscribe(response => {
         console.log(response);
+        Swal.fire({
+          icon: 'success',
+          title: 'Motif Patient added succefully',
+          showConfirmButton: true,
+          timer: 1500
+          })
       });
     };
     reader.readAsArrayBuffer(this.uploadedFiles[0]);

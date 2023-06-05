@@ -1,7 +1,10 @@
 package com.backend.controller;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.http.ResponseEntity;
@@ -90,15 +93,31 @@ public class RendezvousController {
 	    if (optionalDocteur.isPresent()) {
 	        Docteur docteur = optionalDocteur.get();
 	        List<RendezVous> rendezVousList = rendezVousRepository.findByDocteur(docteur);
-	        System.out.println("List of patients associated with doctor: ");
+	        
+	        List<RendezVous> filteredRendezVousList = new ArrayList<>();
+	        Set<Long> patientIds = new HashSet<>();
+
 	        for (RendezVous rendezVous : rendezVousList) {
+	            Long patientId = rendezVous.getPatient().getID_Patient();
+	            
+	            // Vérifier si l'ID du patient existe déjà dans le set
+	            if (!patientIds.contains(patientId)) {
+	                patientIds.add(patientId);
+	                filteredRendezVousList.add(rendezVous);
+	            }
+	        }
+
+	        System.out.println("List of patients associated with doctor: ");
+	        for (RendezVous rendezVous : filteredRendezVousList) {
 	            System.out.println(rendezVous.getPatient());
 	        }
-	        return ResponseEntity.ok(rendezVousList);
+
+	        return ResponseEntity.ok(filteredRendezVousList);
 	    } else {
 	        return ResponseEntity.notFound().build();
 	    }
 	}
+
 
 	
 	@GetMapping("/patient/{id}")
