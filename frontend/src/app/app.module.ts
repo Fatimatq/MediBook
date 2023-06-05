@@ -27,7 +27,7 @@ import { ScheduleModule, RecurrenceEditorModule ,DayService, WorkWeekService,Wee
 
 import { DashbordComponent } from './dashbord/dashbord.component';
 
-import { DocumentPatientComponent } from './document-patient/document-patient.component';
+
 import { FavorisComponent } from './favoris/favoris.component';
 import { HistoryPatientComponent } from './history-patient/history-patient.component';
 import { NotificationPatientComponent } from './notification-patient/notification-patient.component';
@@ -39,7 +39,6 @@ import { SignupdocteurComponent } from './signupdocteur/signupdocteur.component'
 import { DashboarddoctorComponent } from './dashboarddoctor/dashboarddoctor.component';
 import { ListPatientComponent } from './list-patient/list-patient.component';
 import { DocumentpatientComponent } from './documentpatient/documentpatient.component';
-
 
 
 
@@ -62,7 +61,7 @@ import { DocumentpatientComponent } from './documentpatient/documentpatient.comp
     MediFolderComponent,
     NavbarSecondComponent,
     DashbordComponent,
-    DocumentPatientComponent,
+    DocumentpatientComponent ,
     FavorisComponent,
     HistoryPatientComponent,
     NotificationPatientComponent,
@@ -74,7 +73,7 @@ import { DocumentpatientComponent } from './documentpatient/documentpatient.comp
     SignupdocteurComponent,
     DashboarddoctorComponent,
     ListPatientComponent,
-    DocumentpatientComponent,
+    
 
   ],
   imports: [

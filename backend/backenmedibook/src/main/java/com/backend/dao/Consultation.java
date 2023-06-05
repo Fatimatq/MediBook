@@ -40,13 +40,8 @@ public class Consultation {
         this.consultationId = consultationId;
     }
 
-    public RendezVous getRendezvous() {
-        return rendezvous;
-    }
+   
 
-    public void setRendezvous(RendezVous rendezvous) {
-        this.rendezvous = rendezvous;
-    }
 
     public Docteur getDoctor() {
         return doctor;

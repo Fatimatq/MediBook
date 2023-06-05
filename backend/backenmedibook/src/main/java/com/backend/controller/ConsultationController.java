@@ -1,6 +1,9 @@
 package com.backend.controller;
 
 import com.backend.dao.Consultation;
+import com.backend.dao.Patient;
+import com.backend.repositories.ConsultationRepository;
+import com.backend.repositories.PatientRepository;
 import com.backend.services.impl.ConsultationServiceImp;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,14 +14,21 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
+@CrossOrigin( origins = "http://localhost:4200/")
 @RestController
 @RequestMapping("/consultation")
 public class ConsultationController {
     private final ConsultationServiceImp consultationService;
+    private final PatientRepository patientRepository;
+    private final ConsultationRepository consultationRepository;
 
     @Autowired
-    public ConsultationController(ConsultationServiceImp consultationService) {
+    public ConsultationController(ConsultationServiceImp consultationService, PatientRepository patientRepository, ConsultationRepository consultationRepository) {
         this.consultationService = consultationService;
+		this.patientRepository = patientRepository;
+		this.consultationRepository = consultationRepository;
     }
 
     @PostMapping
@@ -66,5 +76,26 @@ public class ConsultationController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+    @Transactional
+    @GetMapping("/patient/{id}/consultations")
+    public ResponseEntity<List<Consultation>> getConsultationsByPatientId(@PathVariable("id") Long patientId) {
+        System.out.println("Fetching consultations for patient with ID: " + patientId);
+        Optional<Patient> optionalPatient = patientRepository.findById(patientId);
+
+        if (optionalPatient.isPresent()) {
+            Patient patient = optionalPatient.get();
+            List<Consultation> consultationList = consultationRepository.findByPatient(patient);
+            System.out.println("List of consultations associated with the patient: ");
+            for (Consultation consultation : consultationList) {
+                System.out.println(consultation.getPatient());
+            }
+            return ResponseEntity.ok(consultationList);
+        } else {
+        	System.out.println("jo");
+            return ResponseEntity.notFound().build();
+            
+        }
+    }
+
     
 }
