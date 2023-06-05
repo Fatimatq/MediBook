@@ -2,21 +2,26 @@ package com.backend.services.impl;
 
 
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.backend.dao.Docteur;
 import com.backend.dao.RendezVous;
+import com.backend.repositories.DocteurRepository;
 import com.backend.repositories.RendezVousRepository;
 import com.backend.services.RendezvousService;
 
 @Service
 public class RendezvousServiceImp implements RendezvousService {
     private RendezVousRepository rendezVousRepository ;
+    private DocteurRepository docteurRepository;
 
-    public RendezvousServiceImp(RendezVousRepository rendezVousRepository) {
+    public RendezvousServiceImp(RendezVousRepository rendezVousRepository , DocteurRepository docteurRepository) {
         this.rendezVousRepository = rendezVousRepository;
+        this.docteurRepository=docteurRepository;
     }
 
     @Override
@@ -63,5 +68,15 @@ public class RendezvousServiceImp implements RendezvousService {
         }
     }
     // Ajoutez d'autres méthodes spécifiques au service des rendez-vous si nécessaire
+	
+	@Override
+	public List<RendezVous> findRendezVousByDocteur(Long docteurId) {
+	    Docteur docteur = docteurRepository.findById(docteurId).orElse(null);
+	    if (docteur != null) {
+	        return rendezVousRepository.findByDocteur(docteur);
+	    } else {
+	        return Collections.emptyList();
+	    }
+	}
 
 }

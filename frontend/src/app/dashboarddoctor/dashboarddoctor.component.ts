@@ -75,11 +75,7 @@ export class DashboarddoctorComponent {
     }
   }
 
-  public deleteRendezVous(args: any): void {
-    
-  }
 
- 
 }
 
 console.log(localStorage.getItem("idDocteur"))

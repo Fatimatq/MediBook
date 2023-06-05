@@ -21,7 +21,7 @@ export class SignupdocteurComponent {
   return this.docteurService.signup(this.docteur.adresse,this.docteur.password,this.docteur.nom,this.docteur.prenom,this.docteur.specialite,this.docteur.numeroTelephone)
   .subscribe((res)=>Swal.fire({
     icon: 'success',
-    title: 'Your account has been created succefully',
+    title: 'Motif Patient added succefully',
     showConfirmButton: true,
     timer: 1500
     }),err=>{ Swal.fire({

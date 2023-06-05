@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { Docteur } from './docteur';
 import { DocteurServiceService } from '../docteur-service.service';
 import { Router } from '@angular/router';
+
 import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-logindocteur',
@@ -31,6 +33,7 @@ export class LogindocteurComponent {
     localStorage.setItem("idDocteur", res.docteur.id_docteur)
     localStorage.setItem("nomDocteur", res.docteur.nom)
     localStorage.setItem("prenomDocteur", res.docteur.prenom)
+    localStorage.setItem("Docteur",res.docteur)
     
 
     localStorage.setItem("isAuthenticateddoctor",this.docteurService.isAuthenticated().toString())

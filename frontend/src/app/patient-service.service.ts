@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+
 import { Rendezvous } from './dashboarddoctor/rendezvous';
+
 
 
 
@@ -32,6 +34,7 @@ export class PatientServiceService {
       }
     );
   }
+
   private isAuthenticateda  = false;
   constructor(private http:HttpClient) {}
    
@@ -49,10 +52,14 @@ export class PatientServiceService {
     return this.http.post(url,body)
       
   }
+
   public deleteRendezVous(rendezvousId: number) {
     const url = `http://localhost:8080/rendezvous/${rendezvousId}`;
     return this.http.delete(url);
   }
+
+
+
   login(email_Patient:String,password_Patient:String){
     const url = 'http://localhost:8080/patient/login';
     const body = {

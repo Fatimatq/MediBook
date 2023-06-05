@@ -1,12 +1,12 @@
-<app-navbar-second></app-navbar-second>
-<app-sidebar></app-sidebar>
+<!-- <app-navbar-second></app-navbar-second>
+<app-sidebar></app-sidebar> -->
 
 <section class="home-section">
     <h1 class="page-title">List Of Patient</h1>
     <div class="global-div">
         <div class="second-div" *ngFor="let patient of patients">
             <div class="info-patient">
-                <img [src]="imageUrl" >
+                <img [src]="imageUrl">
                 <span class="name">{{patient.prenom_Patient}} {{ patient.nom_Patient }}</span>
             </div>
             <div class="see-more">
@@ -17,8 +17,8 @@
 
     </div>
 
-    
+
 
 </section>
-
-<app-footer></app-footer>
+<!-- 
+<app-footer></app-footer> -->

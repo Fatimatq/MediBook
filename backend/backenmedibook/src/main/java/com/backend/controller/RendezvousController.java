@@ -2,6 +2,7 @@ package com.backend.controller;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -62,7 +63,7 @@ public class RendezvousController {
 		 rendezvousService.deleteRendezVous(id);
 	}
 	
-	@GetMapping("/docteur/{id}")
+	/*@GetMapping("/docteur/{id}")
 	public ResponseEntity<List<RendezVous>> getRendezVousByDoctorId(@PathVariable("id") Long doctorId) {
 		System.out.println(doctorId);
 	    Docteur doctor = docteurRepository.findById(doctorId).orElse(null);
@@ -76,6 +77,24 @@ public class RendezvousController {
 		List<RendezVous> rendezvous = rendezVousRepository.findByDocteur(doctor);
 	    if (!rendezvous.isEmpty()) {
 	        return ResponseEntity.ok().body(rendezvous);
+	    } else {
+	        return ResponseEntity.notFound().build();
+	    }
+	}
+ */
+	@GetMapping("/docteur/{id}")
+	public ResponseEntity<List<RendezVous>> getRendezVousByDoctorId(@PathVariable("id") Long doctorId) {
+	    System.out.println("Fetching appointments for doctor with ID: " + doctorId);
+	    Optional<Docteur> optionalDocteur = docteurRepository.findById(doctorId);
+
+	    if (optionalDocteur.isPresent()) {
+	        Docteur docteur = optionalDocteur.get();
+	        List<RendezVous> rendezVousList = rendezVousRepository.findByDocteur(docteur);
+	        System.out.println("List of patients associated with doctor: ");
+	        for (RendezVous rendezVous : rendezVousList) {
+	            System.out.println(rendezVous.getPatient());
+	        }
+	        return ResponseEntity.ok(rendezVousList);
 	    } else {
 	        return ResponseEntity.notFound().build();
 	    }
@@ -99,4 +118,13 @@ public class RendezvousController {
 	        return ResponseEntity.notFound().build();
 	    }
 	}
+	@GetMapping("/docteur/{id}/patients")
+	public ResponseEntity<List<Patient>> getPatientsByDoctorId(@PathVariable("id") Long doctorId) {
+	    List<RendezVous> rendezVousList = rendezvousService.findRendezVousByDocteur(doctorId);
+	    List<Patient> patients = rendezVousList.stream()
+	            .map(RendezVous::getPatient)
+	            .collect(Collectors.toList());
+	    return ResponseEntity.ok(patients);
+	}
+
 }

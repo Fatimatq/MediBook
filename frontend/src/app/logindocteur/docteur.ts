@@ -1,5 +1,5 @@
 export class Docteur {
-    id_docteur!: string
+    id_docteur!: string | null
     password!: string;
     nom!: string;
     prenom!: string;
