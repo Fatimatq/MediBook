@@ -14,8 +14,6 @@ import com.backend.services.errors.UserAlreadyExistsException;
 @Service
 public class PatientServiceImpl implements PatientService {
 	private final PatientRepository patientRepository; 
-	
-	
 
 	public PatientServiceImpl(PatientRepository patientRepository) {
 		this.patientRepository = patientRepository;
